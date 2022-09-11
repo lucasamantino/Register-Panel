@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./img/person.svg">
+    <title>Registrar</title>
+</head>
+<body>
+    <div class="container">
+        <div class="person-icon-box">
+            <img src="./img/person.svg" class="person-icon">
+        </div>
+        <div class="sc1">
+        <h1 class="title">Registrar</h1>  
+        <input type="text" class="box" id="nm" maxlength="20" spellcheck="false" placeholder="Nome">
+        <input type="text" class="box" id="sn" maxlength="20" spellcheck="false" placeholder="Sobrenome"> 
+        <input type="email" class="box" id="em" maxlength="30" spellcheck="false" placeholder="Email">  
+        <input type="password" class="box" id="ps" maxlength="20" spellcheck="false" placeholder="Senha"> 
+        <select class="box-s">
+            <option value="">Desenvolvedor Web</option>
+            <option value="">Desenvolvedor Desktop</option>
+            <option value="">Desenvolvedor Android</option>
+            <option value="">Designer gráfico</option>
+        </select>
+        <select class="box-s">
+            <option value="">Empresário</option>
+            <option value="">Freelancer</option>
+            <option value="">Funcionário</option>
+            <option value="">Estudante</option>
+        </select>
+        <input type="number" id="ag" class="box" max="100" min="1" placeholder="idade" style="text-align: center;"> 
+        <input type="tel" id="tl" class="box" maxlength="20" spellcheck="false" placeholder="Telefone"> 
+        <button class="send" onclick="valid()">Inscreva-se</button>
+        </div>
+    </div>
+
+    <h1 class="sucess"></h1>
+
+    <script>
+        function valid(){
+            let sd = true;
+            if(document.querySelector('#nm').value.replaceAll(' ','') == ''){
+                document.querySelector('#nm').className = 'box berr';
+                sd = false;
+            }
+            if(document.querySelector('#sn').value.replaceAll(' ','') == ''){
+                document.querySelector('#sn').className = 'box berr';
+                sd = false;
+            }
+            if(document.querySelector('#em').value.replaceAll(' ','') == ''){
+                document.querySelector('#em').className = 'box berr';
+                sd = false;
+            }
+            if(document.querySelector('#ps').value.replaceAll(' ','') == ''){
+                document.querySelector('#ps').className = 'box berr';
+                sd = false;
+            }
+            if(document.querySelector('#ag').value.replaceAll(' ','') == ''){
+                document.querySelector('#ag').className = 'box berr';
+                sd = false;
+            }
+            if(document.querySelector('#tl').value.replaceAll(' ','') == ''){
+                document.querySelector('#tl').className = 'box berr';
+                sd = false;
+            }
+
+            if(sd){
+                document.querySelector('.sc1').style.animation = 'sc 0.5s';
+                setTimeout(() => {
+                    document.querySelector('.sc1').style.opacity = '0%';
+                    document.querySelector('.container').style.animation = 'dp 2s';
+                    setTimeout(() => {
+                        document.querySelector('.container').style.width = '0';
+                        document.querySelector('.container').style.height = '0';
+                        write();
+                    }, 2000);
+                }, 500);
+            }
+        }
+
+        var bx = document.querySelectorAll('.box');
+        bx.forEach(el => {
+            el.addEventListener('change',()=>{
+                el.className = 'box';
+            })
+        });
+    
+        function write(){
+            var text = 'Inscrição feita com sucesso!';
+            var ind = 0;
+
+            var tm = setInterval(() => {
+                document.querySelector('.sucess').innerHTML += text[ind];
+                ind++;
+                if(ind>text.length-1){
+                    clearInterval(tm);
+                }
+            }, 100);
+        }
+    </script>
+
+</body>
+</html>

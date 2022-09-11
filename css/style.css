@@ -1,0 +1,135 @@
+@font-face {
+    font-family: af;
+    src: url('./Kanit.ttf');
+}
+*{
+    margin: 0;
+    font-family: af;
+    color: rgb(73, 73, 73);
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-image: linear-gradient(45deg,rgb(25, 24, 59),rgb(129, 61, 129));
+    overflow: hidden;
+}
+.container{
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    background-color: rgb(224, 224, 224);
+}
+@keyframes dp {
+    from{
+        width: 40%;
+        height: 75%;
+    }
+    to{
+        width: 0;
+        height: 0;
+    }
+    100%{
+        transition: 100s;
+    }
+}
+@keyframes sc {
+    from{
+        opacity: 100%;
+    }
+    to{
+        opacity: 0%;
+    }
+}
+.person-icon-box{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    background-color: rgb(51, 50, 88);
+    border-radius: 360px;
+    transform: translate(-50%,-50%);
+    border: solid 2px rgb(224, 224, 224);
+}
+.person-icon{
+    margin: 50%;
+    width: 50%;
+    transform: translate(-50%,-50%);
+}
+.title{
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+.box{
+    width: 40%;
+    margin-left: 6%;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border-bottom: solid 3px rgb(166, 70, 185);
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.box-s{
+    width: 40%;
+    margin-left: 6%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: solid 3px rgb(166, 70, 185);
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.send{
+    width: 80%;
+    border: none;
+    outline: none;
+    background-color: rgb(87, 47, 95);
+    color: white;
+    font-size: 20px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
+.berr{
+    border-bottom: solid 3px rgb(211, 60, 60);
+}
+.sucess{
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,70px);
+    width: 100%;
+    text-align: center;
+}
+@media screen and (max-width:600px) {
+    @keyframes dp {
+        from{
+            width: 100%;
+            height: 75%;
+        }
+        to{
+            width: 0;
+            height: 0;
+        }
+    }
+    .container{
+        width: 100%;
+    }
+    .sucess{
+        font-size: 20px;
+    }
+}
